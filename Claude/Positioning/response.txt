@@ -1,0 +1,14 @@
+Based on the provided source code and screenshot, I can identify the following:
+
+1. Cookie Notice:
+   - There is a cookie notice present at the bottom of the page.
+   - The cookie notice is not visible in the provided screenshot without scrolling down, so a screen-magnifier user at 400% or greater magnification would not be aware of it without scrolling.
+   - To reach the cookie notice from the beginning of the page using the tab key, the user would need to tab through all the focusable elements on the page before reaching the "Accept" button in the cookie notice. The exact number of tab presses required is not specified in the code.
+
+2. Language Switcher:
+   - There is a language switcher present on the page, located in the top-right corner.
+   - However, the language switcher is marked as `aria-hidden="true"`, which means it is hidden from assistive technologies and not accessible via keyboard navigation.
+   - The language switcher links also have `rol="presentation"` (which should be `role="presentation"`) and `pointer-events: none;`, further indicating that they are not interactive or accessible.
+   - Since the language switcher is not accessible, it cannot be reached by tabbing from the beginning of the page.
+
+In summary, the cookie notice is present but not immediately visible to screen-magnifier users without scrolling, and the language switcher is present but not accessible to users relying on keyboard navigation or assistive technologies.
