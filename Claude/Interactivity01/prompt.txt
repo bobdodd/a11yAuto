@@ -1,0 +1,377 @@
+
+
+
+The image is a web screenshot. The following content is the HTML source code for the image. For currently visible content, does the page tab order match the HTML reading order? If not then where does it diverge and what is the XPath at the point of divergence? Identiy any interactive element on the page that is not keyboard accessible and give the XPath and reason. Are there any interactive elements on the page where aria-hidden has been applied? If so please give the XPath of the interactive elements affected. Looking at both the screenshot and HTML, identify any apparent pop-up/drop down menus or disclosure widgets (at any responsive breakpoint) that does not utilize aria-expanded, but exclude buttons that open modal dialogs. Gve all answers in a single JSON object. I do not require any other output other than the JSON.  The HTML:
+
+<html lang="fr"><head>
+  <title></title>
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+  <style>
+    * {
+      font-family: "Lobster";
+    }
+
+    body {
+      background-color: #000;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      outline: none;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background-color: transparent;
+      color: #fff;
+      padding: 8px;
+      z-index: 100;
+      transition: top 0.3s;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #333;
+    }
+
+    .logo img {
+      width: 100px;
+      height: auto;
+    }
+
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+    }
+
+    .menu {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .menu li {
+      margin-left: 20px;
+    }
+
+    .menu a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    h1 {
+      font-size: 48px;
+      text-align: center;
+      animation: colorChange 6s infinite;
+      text-transform: uppercase;
+      font-style: italic;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.5;
+      text-align: justify;
+      padding: 20px;
+      background-image: url('https://example.com/busy-background.gif');
+      background-size: cover;
+      margin-left: 100px;
+      margin-right: 100px;
+    }
+
+    a {
+      color: #ff0;
+      text-decoration: none;
+      font-size: 24px;
+      display: block;
+      margin-top: 20px;
+      /* animation: blink 1s infinite; */
+    }
+
+
+
+    .language-switcher a {
+      display: inline-block;
+      margin-left: 10px;
+      font-size: 16px;
+      color: #fff;
+      text-decoration: none;
+      pointer-events: none;
+    }
+
+    @media screen and (max-width: 768px) {
+      .menu {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .menu.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        padding: 20px;
+      }
+
+      .menu.active li {
+        margin: 10px 0;
+      }
+    }
+
+    @keyframes colorChange {
+      0% { color: #f00; }
+      25% { color: #0f0; }
+      50% { color: #00f; }
+      75% { color: #f0f; }
+      100% { color: #f00; }
+    }
+
+    /* @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    } */
+
+    .cookie-notice {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #f2f2f2;
+      padding: 10px;
+      text-align: center;
+      font-size: 10px;
+    }
+
+    .cookie-notice p {
+      margin: 0;
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 10px;
+
+      color: #777;
+    }
+
+    .cookie-notice a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .cookie-notice button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      margin-left: 10px;
+      cursor: pointer;
+      vertical-align: middle;
+    }
+
+    #absolutePoistion {
+      position: absolute;
+      top: 70px;
+      left: 30%;
+    }
+
+    .modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+  </style>
+<style>
+      .high-contrast-outline-17166548833190:focus {
+        outline: 4px solid white;
+        outline-offset: -2px;
+      }
+    </style><style>
+      .high-contrast-outline-17166548833191:focus {
+        outline: 4px solid white;
+        outline-offset: -2px;
+      }
+    </style><style>
+      .high-contrast-outline-17166548833202:focus {
+        outline: 4px solid black;
+        outline-offset: -2px;
+      }
+    </style><style>
+      .high-contrast-outline-17166548833203:focus {
+        outline: 4px solid white;
+        outline-offset: -2px;
+      }
+    </style></head>
+
+<body>
+  <a href="#broken-link" class="skip-link">Skip to Content</a>
+
+ <div id="modal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal" class="close high-contrast-outline-17166548833202" tabindex="0" role="button">×</span>
+      <h2>Send us a message</h2>
+      <p>Send us a message, we may even respond.</p>
+    </div>
+  </div>
+
+  <header>
+    <nav aria-label="header">
+      <a href="#" class="logo">
+        <img src="./a11y.png" alt="logo">
+      </a>
+
+      <nav>
+        <div id="mnu" class="menu-toggle high-contrast-outline-17166548833190" tabindex="0" role="button">☰</div>
+        <ul class="menu">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">The Accessibility Industry</a></li>
+        </ul>
+      </nav>
+    </nav>
+  </header>
+
+  <div class="language-switcher" aria-hidden="true" style="display:block; float:right;">
+    <a rol="presentation" href="#">English</a>
+    <a href="#">EspaÃ±ol</a>
+    <a href="#">FranÃ§ais</a>
+  </div>
+
+  <h1 tabindex="0">Welcome to Inaccessibility Matters</h1>
+
+  <div id="absolutePoistion" onclick="alert('A popup message');" tabindex="0" role="button" class="high-contrast-outline-17166548833203">Click to open popup</div>
+
+  <p>
+    At Inaccessibility Matters, we believe that everyone should have equal access to information and technology,
+    regardless of their abilities. Our mission is to promote and advocate for web accessibility standards to ensure that
+    websites and applications are usable by all individuals, including those with disabilities. We're not very good at
+    acheiving it though.
+  </p>
+
+  <a href="#">Click here</a> to learn more about us
+
+  <p>
+    Did you know that over 1 billion people worldwide live with some form of disability? That's why it's crucial for
+    websites to follow accessibility guidelines and best practices. By making your website accessible, you not only
+    comply with legal requirements but also ensure that your content reaches a wider audience.
+  </p>
+
+  <a title="Explore" href="#">Explore our accessibility resources</a>
+
+  <p>
+    At Inaccessibility Matters, we offer a range of services to help organizations fail to improve the accessibility of
+    their digital products. From accessibility audits and consulting to training and remediation, we have the expertise
+    to guide you through the process of making your website inclusive and user-friendly for everyone. We even offer
+    overlays to fix your site in one line of code, becuase we know they work.
+  </p>
+
+  <a href="#" title="get in touch">Get in touch with our accessibility experts</a>
+
+  <footer>
+    <div class="newsletter-form">
+      <h3>Subscribe to Our Newsletter</h3>
+      <form action="#" method="POST">
+        <input type="email" id="email" name="email" placeholder="Enter your email address" required="">
+        <button type="submit">Subscribe</button>
+      </form>
+      <p>Stay up to date with our latest news and promotions.</p>
+    </div>
+     <button id="openModal" role="button" class="high-contrast-outline-17166548833191">Contact Us</button>
+  </footer>
+  <div class="cookie-notice">
+    <p>This website uses cookies to enhance your browsing experience and provide personalized content. By continuing to
+      use our site, you agree to our use of cookies. <a href="#">Learn more</a></p>
+    <button class="accept-cookies">Accept</button>
+  </div>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu');
+    
+    menuToggle.addEventListener('click', function() {
+      menu.classList.toggle('active');
+    });
+
+    
+  </script>
+  <script>
+    function callback() {
+      alert("Callback")
+    }
+    document.querySelector('.accept-cookies').addEventListener('click', function() {
+      document.querySelector('.cookie-notice').style.display = 'none';
+      setTimeout(1000,callback);
+    });
+  </script>
+  <script>
+    var modal = document.getElementById("modal");
+    var openModalBtn = document.getElementById("openModal");
+    var closeBtn = document.getElementsByClassName("close")[0];
+
+    openModalBtn.onclick = function() {
+      var modal = document.getElementById("modal");
+      modal.style.display = "block";
+    } 
+
+    closeBtn.onclick = function() {
+      var modal = document.getElementById("modal");
+      modal.style.display = "none";
+       document.querySelector('#openModal').focus();
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+      modal.style.display = "none";
+      }
+    }
+
+  </script>
+
+
+</body></html>
