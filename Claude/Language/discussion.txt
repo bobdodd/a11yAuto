@@ -1,0 +1,21 @@
+The goal of this demo is to show AI testing a page for WCAG success criteria
+3.1.1 Language of Page (level A) and 3.1.2 Language of Parts (level AA). We
+concentrate of language detection from the actual text rather than on the syntax 
+of the lang attributes, going beyond the classic automated testing 
+currently available.
+
+The prompt queries the embedded HTML of a web pge. That HTML is, in this case,
+copied by insoecting the rendered web page using the Chrome dev tools and
+copying the element.
+
+We use Claude's HTML knowledge to identify the text content of the page and 
+identify the dominant language of this text. On this page, that is English.
+
+We ask Claude to comapre this with the delared language of the page, which is
+"fr".
+
+We also ask Claude to identify any words that are not in the dominant language,
+It sould find some French and Spanish in the language switcher.
+
+For any words that are not in the dominant language, we ask if they are wrapped
+in lang attributes appropriate to their language. In this case they are not.
