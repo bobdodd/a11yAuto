@@ -1,0 +1,25 @@
+{
+  "tabOrder": "The tab order does not match the HTML reading order. It diverges at the language switcher links, which are not keyboard accessible due to the 'pointer-events: none' style. The XPath at the point of divergence is /html/body/div[2].",
+  "nonAccessibleInteractiveElements": [
+    {
+      "xpath": "/html/body/div[2]/a[1]",
+      "reason": "Pointer events disabled"
+    },
+    {
+      "xpath": "/html/body/div[2]/a[2]",
+      "reason": "Pointer events disabled"  
+    },
+    {
+      "xpath": "/html/body/div[2]/a[3]",
+      "reason": "Pointer events disabled"
+    }
+  ],
+  "ariaHiddenInteractiveElements": [
+    "/html/body/div[2]/a[1]",
+    "/html/body/div[2]/a[2]", 
+    "/html/body/div[2]/a[3]"
+  ],
+  "missingAriaExpanded": [
+    "/html/body/header/nav/nav/div"
+  ]
+}
