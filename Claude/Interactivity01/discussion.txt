@@ -1,0 +1,31 @@
+This demo takes aim at  accessibility issues in interactive content.
+We look for unreachable content by comparing reading order with tab
+order and explicitly looking for use of aria-hidden on interactive
+elements. We also look for drop-down menus and disclosure widgets
+to see if thy at least use the aria-expanded attribute (the test
+is not currently strong enough to know whether it is used correctly).
+
+The prompt provided the soource code of our inaccessiblityMatters
+web page and a screenshot of the rendered page (to potentially
+help with reading order and visibility). 
+  
+The prompt requests a reply in JSON, but not as precisely as it 
+should for tab order, as is visible in the response which does
+not properly separate out related information for programatic use.
+
+What Claude does find is that there is unreachable content in the
+reading order.  Attribute pointer-contents: none is reported
+but I'm not sold on that argument, I expected it to report on
+the aria-hidden attribute. So, right answer but wrong reason (I think).
+That said, it does actully recognize them as aria-hidden.
+
+Claude finds one drop-down menu (the hamburger menu), and 
+correctly detects that the aria-expanded attribute is missing.
+
+I also ran the same prompt without the screenshot and frecieved the
+same response. It would be interestign to see if larger, more
+complex pages would benefit from the screenshot being provided
+or whether this is a case of AI simply creating and running 
+alogorithms that coud be hand-coded.
+
+  
