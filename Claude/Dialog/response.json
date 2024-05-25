@@ -1,0 +1,26 @@
+{
+  "clickHandlers": [
+    {
+      "button": "//*[@id='absolutePoistion']",
+      "modal": null,
+      "focusMovesToModal": false,
+      "focusReturnsToButton": false,
+      "modalHeading": false,
+      "modalRole": false,
+      "modalCloseButton": false,
+      "modalClosesOnEscape": false,
+      "trulyModal": false
+    },
+    {
+      "button": "//*[@id='openModal']",
+      "modal": "//*[@id='modal']",
+      "focusMovesToModal": true,
+      "focusReturnsToButton": true,
+      "modalHeading": true,
+      "modalRole": false,
+      "modalCloseButton": true,
+      "modalClosesOnEscape": false,
+      "trulyModal": false
+    }
+  ]
+}
