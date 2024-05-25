@@ -1,8 +1,81 @@
 In this demo, we look at how well we can identify accessibility issues
 related to positioning of content. In this case we concentrate on
-cookie notices and language switchers.
+cookie notices and language switchers. The issues we are looking for
+fall into section 5.2.4 of WCAG, generally called "accessibility supported"
+that deals with conformance claims. 5.2.4 in a nutshell says that even
+if all the the WCAG Success Citeria have been met, a webiste does not
+conform to WCAG if it does nto support regular assistive technology.
+That is usually taken to mean screen-readers and screen magnifiers as
+a bare minimum.
+
+If important and/or legally necessary content is not easily findable 
+because of design descisions that impact assistve technology, a site
+is deened to have failed conformance (amd by inferance, legislation that
+mandates conformance).
 
 The prompt provides the source code of the inaccessibilityMatters website 
 and a screenshot of the rendered page, and we ask first for detection
-of both elements. For those that are found, we ask how many tab presses
-it may take to 
+of both elements. 
+
+For those that are found, we ask how many tab presses
+it takes from the top of the page to reach them. This is important from
+a usability perspective (how hard is it to reach content?) but also from
+an accessibility one as we don't want the user to interact with content 
+that modifies cookies before they are aware the site uses them. Cookie 
+notices at the end of the HTML body will not be found easily by screen-reader 
+users without additional programming effort by the developers. A similar
+issue affects language switchers: if they are hard to find, then a user 
+may be forced to navugat a page in a language they don not know looking
+for that switcher.
+
+Additionally, users on high magnification of 400% and up, need to know
+that there is a cookie notice easily, and if they need to scroll down the
+page to discover it, again they may again interact with cookie modifying 
+content before discovering the notice.
+
+Wehen we look at the response from Claude, we find that the accessibilitMatters
+page contains both a cookie notice and a language switcher. The cookie notice
+is at the bottom of the page, and is not considered visible at 400% magnifiaction
+with the magnifier at the top of the page. This claim is from Claude, and further
+investigation is needed to discover what tests it used to come to this conclusion.
+
+Three sets of resonses are provided in the response.txt file, with Claude
+set to different levels token user and temperature (how creative it can be).
+Both give similar results, the second, with more tokens and creativity provides
+a more detailed response. The thirs set have Claude access only to the source
+code.
+
+Looking at the second response, Claude identifies the explicit tab order 
+on the page followed byt he user tabbing to the cookie notice, identify the
+interactive elemets as it goes. It requres eight tabs to reach the accept button
+of the notice.
+
+Claude identifies additional issues with the language switcher that stop it
+being bale to return a tab count for the switcher. The switcher is aria-hidden
+and with a role of presentation (a mis-spelled "role" ttribute as it explains)
+and correcty identifies the language switcher as being keyboard unreachable.
+
+Consequently, we have identifed conformace issues (WCAG 5.2.4) with positioning
+of content for both screenr-reader and screen-magnifier, but also, in passing,
+syntax and grammar issues with the source code that are part of WCAG 4.1.2
+Name, Role, Value (level AA).
+
+So, how much of this work is dependent in any way on the screenshot and how 
+much is algorihmic? The answer from ressponse set 3 is that Claude used the
+screenshot to understand the relative size of content. Without the screenshot
+it was not able to decide whether the cookie notice could be seen by a screen
+magnifier user at 400% without vertical scrolling:
+
+"Based on the provided styles, the cookie notice has a fixed position at the 
+bottom of the page with a white background color and small font size. However, 
+without seeing the rendered page, it's difficult to determine if a 
+screen-magnifier user at 400% or greater magnification would be aware of it 
+without scrolling."
+
+
+
+
+
+
+
+
