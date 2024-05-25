@@ -1,0 +1,100 @@
+{
+    "imageHeadings": [
+        {
+            "text": "WELCOME TO INACCESSIBILITY MATTERS",
+            "level": 1
+        },
+        {
+            "text": "Click to open popup",
+            "level": 2
+        },
+        {
+            "text": "Learn more",
+            "level": 2
+        },
+        {
+            "text": "to learn more about us",
+            "level": 2
+        },
+        {
+            "text": "Explore our accessibility resources",
+            "level": 2
+        },
+        {
+            "text": "Get in touch with our accessibility experts",
+            "level": 2
+        },
+        {
+            "text": "Subscribe to Our Newsletter",
+            "level": 3
+        },
+        {
+            "text": "Contact Us",
+            "level": 2
+        }
+    ],
+    "htmlHeadings": [
+        {
+            "text": "Send us a message",
+            "level": 2
+        },
+        {
+            "text": "Welcome to Inaccessibility Matters",
+            "level": 1
+        },
+        {
+            "text": "Subscribe to Our Newsletter",
+            "level": 3
+        }
+    ],
+    "matchedHeadings": [
+        {
+            "imageText": "WELCOME TO INACCESSIBILITY MATTERS",
+            "htmlText": "Welcome to Inaccessibility Matters",
+            "note": "Text differs in capitalization"
+        },
+        {
+            "imageText": "Subscribe to Our Newsletter",
+            "htmlText": "Subscribe to Our Newsletter"
+        }
+    ],
+    "unmatchedHtmlHeadings": [
+        {
+            "text": "Send us a message",
+            "level": 2
+        }
+    ],
+    "obscuredHtmlHeadings": [],
+    "unmatchedImageHeadings": [
+        {
+            "text": "Click to open popup",
+            "level": 2,
+            "xpath": "/html/body/div[3]"
+        },
+        {
+            "text": "Learn more",
+            "level": 2,
+            "xpath": "/html/body/a[1]"
+        },
+        {
+            "text": "to learn more about us",
+            "level": 2,
+            "xpath": "/html/body/a[1]"
+        },
+        {
+            "text": "Explore our accessibility resources",
+            "level": 2,
+            "xpath": "/html/body/a[2]"
+        },
+        {
+            "text": "Get in touch with our accessibility experts",
+            "level": 2,
+            "xpath": "/html/body/a[3]"
+        },
+        {
+            "text": "Contact Us",
+            "level": 2,
+            "xpath": "/html/body/footer/button"
+        }
+    ]
+}
