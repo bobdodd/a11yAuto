@@ -1,0 +1,8 @@
+In this demo, we look at how well we can identify accessibility issues
+related to positioning of content. In this case we concentrate on
+cookie notices and language switchers.
+
+The prompt provides the source code of the inaccessibilityMatters website 
+and a screenshot of the rendered page, and we ask first for detection
+of both elements. For those that are found, we ask how many tab presses
+it may take to 
