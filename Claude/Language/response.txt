@@ -1,0 +1,19 @@
+Based on the textContent of the elements, the dominant language of the HTML page appears to be English. 
+However, this does not match the language defined for the page in the HTML tag, which is set to "fr" (French).
+
+There are a few words and phrases that are not in English:
+
+1. "Español" in the language switcher
+2. "Français" in the language switcher
+
+These non-English words do not have the required `lang` attribute applied to them. 
+To properly indicate the language of these words, you should wrap them in an appropriate element 
+(e.g., `<span>`) and add the `lang` attribute with the corresponding language code. For example:
+
+```html
+<a href="#"><span lang="es">Español</span></a>
+<a href="#"><span lang="fr">Français</span></a>
+```
+
+By adding the `lang` attribute, you provide a clear indication of the language used 
+for those specific words, which is important for accessibility and proper language identification.
