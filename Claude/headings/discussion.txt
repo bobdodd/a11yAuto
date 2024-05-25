@@ -1,0 +1,60 @@
+With this example, we are mixing image recognition with source code parsing. 
+It uses the inaccessibilityMatters website, with a full-screen screenshot
+and the souce code from the Chrome dev tools.
+
+The goal here is to try and find all of the likely headings on the page, 
+irrespective of whether they have <hx> tags or aria-level attributes, whether
+the heading order makes sense, and indirectly if any content is obscured.
+WCAG Success Criteria 1.3.1 Info and Relationships (level A) fails if we have
+unmarked-up haedings or if the headings are out of order; success criteria
+2.4.7 fails if any of the marked-up headings are obscured on the page. Where
+We have apparently unmarked-up headings, we would also really want to fiurther
+test for broken WAI Aria heading-level attributes as those may be the real 
+reason for the test failure; that additional test is part of WCAG Success
+Criteria 4.1.2 Name, Role, Value (level A).
+  
+
+We do these tests by inspecting at the rendered content on-screen for clues 
+as to what the headings on the page may be, based on text size, font, 
+prominence, color, and position. We also inspect the HTML mark=up for explicit 
+heading levels.
+
+We then compare the two sets of findings, looking for apparent headings that
+are not marked up as headings from the screenshot, and looking for headings
+marked up in the HTML that are not visible in the screenshot.
+
+The prompt is design to report in JSON so that the result can be used
+programmatically to create a report, and to potentially "fix" the 
+page (overlay style).
+
+If we look at the JSON output, we see not just the likely headings, but the
+likely hierarchy based on position and styling on the page; we see levels 1,
+2 and 3.  In comparison, there are only three headings discovered in the HTML
+and gthry apeear to be out of order (level 2, then 1, then three).
+
+The prompt also matches the headings, and we see in th JSON that two of the
+HTML headings match those discovered fromt rh screenshot, and one of those 
+varies in capitalization (showing that CSS is being used to capitalize text).
+
+The thrid HTML headin is unmatched ("send us a message") becuase it is hidden 
+by the floating cookie notice at the bottom of the page. That indicate that 
+we would need to test the focus order of the page to ensure that keyboard focus 
+cannont be lost under that notice. So we are indicating a possible issue for
+Success Criterion 2.4.7 Focus Visible (level AA).
+
+All of the unmatched headings found in the screenshot fail WCAG 1.3.1 Info and
+Reationships (level A).
+
+The question I have, is how much of this promplt should actually be in the prompt?
+Generally once's own coding and testing of page HTML is "free" in that we can
+run the test multiple times at no further cost than writing it. Prompts,on the 
+other hand, are quite costly in that there is a price per input and output token
+used each time the test is used. AI prompts are also much slower in general than 
+those running locally on a desktop PC+browser comnbo. 
+
+Those parts of the prompt that work on the screen-shot are those that should be
+there, the rest is just a programming exercise. Perhaps a complex one, but entirely
+possible.
+  
+
+
