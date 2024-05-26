@@ -1,0 +1,39 @@
+This demo looks specifically at accessibility issues related to 
+modal dialogs. 
+
+We search for buttons and click handlers that look like they may
+open modal dialogs. For each we find, we then test how the 
+dialog is opened and closed, the role given, whether the modal is
+truly modal (the background behind it is inert), and whether the 
+dialog has a heading.
+
+These tests are based on the current state of the page, which
+we get from the pasted dev tools page content. 
+
+The results are requested in JSON form, partly for readability,
+partly to allow them to be programatically inspected and 
+ potentially remediated through an overlay.
+
+Claude finds two potential modals, one is a "real" modal on the
+page, the other is a JavaScript alert() call which is also
+a modal. Our test did not handle the alert case correctly,
+and so the modal is identified by the modal properties are not
+properly inspected.
+
+Looking at the one "real" modal, a full set of tests are reported.
+Claude correctly reports that focus is not noved to the modal
+when it opens (we test for the "focus()" call), but that it does
+correctly return to the opening element (a button) when closed
+from the close button on the modal.
+
+Claude also detects that the modal has an <h2> heading and that it
+does seem to have a close button. It also identifies that the role
+has not been set to "dialog", there is no close handler based on
+the escape key, and that the background to the modal is not inert.
+
+The problem with this prompt, I suspect, is that too much trus is 
+being placed in Claude without validating the repsonse. Claude's
+response to this test page is near perfect, but I wonder how well
+it would do on content out in the wild.
+  
+  
