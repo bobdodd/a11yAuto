@@ -8,10 +8,10 @@ same prompts have also been tested with the Opus API running with
 200,000 input tokens in order to parse larger source files. Here we
 limit ourselves to one small, if buggy, web page.
 
-Five demos are provided that test for accessibility issues geneerally 
+Five demos are provided that test for accessibility issues generally 
 not covered by "classic" automated accessibility testing. Each demo
-consists of a prompt used to drive Anthropic's Claude.ai Opus model,
-The repsonse from Claude, a screenshot of the page being tested, and
+consists of: a prompt used to drive Anthropic's Claude.ai Opus model,
+The response from Claude, a screenshot of the page being tested, and
 a discussion document on the test.
 
 Taking each demo in turn:
@@ -33,7 +33,10 @@ The demo also picks up some syntax and role issues that would be WCAG Success Cr
 
 4. Interactivity
 
+This demo looks for unreachable content by comparing tab order with sreenp-reader style reading order. It also identifies drop-down menus and disculosure widgets looking for missing "aria-expanded" attributes. WCAG Success Criteria fails are identifable for 1.3.1 Info and Relationsips, 2.4.3 Focus Order, and 4.1.2 Name, Role, Value.
 
-7
-. Modal Dialogs
+5. Modal Dialogs
+
+This demo is focused specifically on modal dialogs, looking to detect them, to detect how they are opened and closed, and the structure of the dialog (heading, close button, escape key closure, inert background). It aims to catch issues shuch as focus not moving to the dialog on open, and not returning to the initiating element on closure. Generally none of the issues found by this demo are currently available in commercial automated test tools. A heads up: this is the most fragile of the demos, and relies heavily on the AI for detection; it needs significant testing in real-world situations to validate its usefulness.
+
 
