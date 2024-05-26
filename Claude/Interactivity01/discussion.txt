@@ -1,4 +1,4 @@
-This demo takes aim at  accessibility issues in interactive content.
+This demo takes aim at accessibility issues in interactive content.
 We look for unreachable content by comparing reading order with tab
 order and explicitly looking for use of aria-hidden on interactive
 elements. We also look for drop-down menus and disclosure widgets
